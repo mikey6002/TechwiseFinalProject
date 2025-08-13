@@ -1,0 +1,422 @@
+/**
+ * Dashboard Styles
+ * 
+ * This file contains all the styling for the dashboard.
+ * Feel free to modify colors, sizes, and effects here.
+ */
+
+/* Main dashboard container - covers the whole screen */
+.dashboard {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;  /* Full screen height */
+  width: 100vw;       /* Full screen width */
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-left: 60px; /* Account for collapsed navbar */
+  transition: padding-left 0.3s ease;
+}
+
+/* Adjust content when navbar is expanded */
+.dashboard.navbar-expanded {
+  padding-left: 250px;
+}
+
+/* Dashboard title styling */
+.dashboard-title {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);  /* Center the title */
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  z-index: 10;
+  font-size: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);  /* Add shadow for better readability */
+}
+
+
+/* Base styling for all textboxes */
+.textbox-base {
+  padding: 15px;
+  padding-right: 45px;
+  border: 2px solid rgba(255, 255, 255, 0.3);  
+  border-radius: 10px;                         /* Rounded corners */
+  background: rgba(255, 255, 255, 0.1);        /* Semi-transparent background */
+  backdrop-filter: blur(10px);                 /* Blur effect behind textbox */
+  color: white;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  resize: none;                                /* Prevent manual resizing */
+  outline: none;                               /* Remove default outline */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);  /* Drop shadow */
+  z-index: 10;
+}
+/* Container for textbox and submit button */
+.textbox-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Submit button styling */
+.textbox-submit-btn {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 15;
+}
+
+/* Submit button hover effect */
+.textbox-submit-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Submit button active/pressed effect */
+.textbox-submit-btn:active {
+  transform: scale(0.95);
+}
+
+/* Placeholder text styling */
+.textbox-base::placeholder {
+  color: rgba(255, 255, 255, 0.7);  /* Light gray placeholder text */
+}
+
+/* Textbox styling when clicked/focused */
+.textbox-base:focus {
+  border-color: rgba(125, 12, 143, 0.5);     /* Brighter border when focused */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);  /* Larger shadow when focused */
+  transform: translateY(-2px);                /* Slight lift effect */
+}
+
+
+/* Large textbox size */
+.textbox-large {
+  width: 600px;
+  height: 300px;
+  font-size: 18px;
+  padding: 20px;
+  padding-right: 45px;
+}
+
+/* File uploader container styling */
+.file-uploader-container {
+  position: absolute;
+  top: 30%;
+  left: 55%;
+  width: 600px;
+  height: 300px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  color: white;
+  font-family: Arial, sans-serif;
+  z-index: 10;
+}
+
+/* File input section */
+.file-input-section {
+  margin-bottom: 20px;
+}
+
+.file-help-text {
+  margin: 8px 0 0 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+}
+
+/* Style the file input to match your theme */
+.file-uploader-container input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.file-uploader-container input[type="file"]:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.file-uploader-container input[type="file"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.file-uploader-container input[type="file"]::file-selector-button {
+  background: rgba(59, 130, 246, 0.3);
+  color: white;
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  border-radius: 5px;
+  padding: 8px 16px;
+  margin-right: 12px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.file-uploader-container input[type="file"]::file-selector-button:hover {
+  background: rgba(59, 130, 246, 0.5);
+  transform: translateY(-1px);
+}
+
+/* File info section */
+.file-info {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.file-info h4 {
+  margin: 0 0 10px 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.file-info p {
+  margin: 5px 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Process section */
+.process-section {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.process-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.process-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.process-help-text {
+  margin: 10px 0 0 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+}
+
+/* Processing section */
+.processing-section {
+  margin: 20px 0;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6 0%, #1d4ed8 100%);
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.progress-text {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  min-width: 45px;
+}
+
+.progress-message {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  font-style: italic;
+}
+
+/* Success section */
+.success-section {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.success-message {
+  margin: 0 0 15px 0;
+  color: #10b981;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.view-results-btn {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-results-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+/* Error section */
+.error-section {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.error-message {
+  margin: 0 0 15px 0;
+  color: #ef4444;
+  font-weight: 600;
+  font-size: 14px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.retry-btn {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retry-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Text Processing Styles */
+.text-processing-status {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 10px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 20;
+}
+
+.processing-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.processing-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.textbox-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.textbox-submit-btn:disabled:hover {
+  transform: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Enhanced textbox focus for main textbox during processing */
+.textbox-container:has(.text-processing-status) .textbox-base {
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+}
+
+/* Responsive adjustments for text processing */
+@media (max-width: 768px) {
+  .text-processing-status {
+    position: static;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+/* Legacy styles - keeping for compatibility */
+
+.file-uploader-container .text-green-500 {
+  color: #10b981;
+}
+
+.file-uploader-container .text-red-500 {
+  color: #ef4444;
+}
+
+.file-uploader-container .text-gray-500 {
+  color: rgba(255, 255, 255, 0.7);
+}
+

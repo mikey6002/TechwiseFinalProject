@@ -1,0 +1,113 @@
+/**
+ * Navbar Styles
+ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: rgba(102, 158, 249, 0.8);
+  backdrop-filter: blur(10px);
+  border-right: 2px solid rgba(255, 255, 255, 0.794);
+  z-index: 100;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Collapsed state */
+.navbar.collapsed {
+  width: 60px;
+}
+
+/* Expanded state */
+.navbar.expanded {
+  width: 250px;
+}
+
+/* Toggle button */
+.navbar-toggle {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+.navbar-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-icon {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+}
+
+/* Navigation items container */
+.navbar-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+/* Individual navigation item */
+.navbar-item {
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar-item.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-right: 3px solid #667eea;
+}
+
+/* Navigation link */
+.navbar-link {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.navbar-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Navigation icon */
+.navbar-icon {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+  flex-shrink: 0;
+}
+
+/* Navigation label */
+.navbar-label {
+  margin-left: 15px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Show labels when expanded */
+.navbar.expanded .navbar-label {
+  opacity: 1;
+}
+
+/* Hide labels when collapsed */
+.navbar.collapsed .navbar-label {
+  opacity: 0;
+}

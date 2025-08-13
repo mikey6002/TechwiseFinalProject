@@ -7,9 +7,18 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "setup": "echo 'Please copy .env.example to .env and add your OpenAI API key'",
+    "check-config": "node -e \"console.log('Configuration check not implemented yet')\"",
+    "server": "node server/server.js",
+    "server:dev": "nodemon server/server.js",
+    "start": "concurrently \"npm run server:dev\" \"npm run dev\"",
+    "install-dev": "npm install nodemon concurrently --save-dev",
+    "test-atlas": "node test-atlas.js"
   },
   "dependencies": {
+    "@types/axios": "^0.9.36",
+    "axios": "^1.11.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
@@ -22,6 +31,6 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.2.0",
-    "vite": "^7.0.0"
+    "vite": "^6.0.0"
   }
 }
