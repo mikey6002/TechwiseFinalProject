@@ -1,0 +1,4 @@
+1. cd documentation
+2. npm install
+3. yarn
+4. PROJECT_NAME=this_name_doesnt_matter yarn start
